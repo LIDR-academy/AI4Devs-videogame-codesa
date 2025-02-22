@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="pantallaInicio" class="pantalla">
+        <img src="space-invaders/pantallaInicio.jpg" alt="Pantalla de Inicio">
+        <button id="btnIniciar">PLAY GAME</button>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="500" style="display: none;">
+        <button id="btnReiniciar" class="reiniciar-btn" style="display: none;">Reiniciar Juego</button>
+        <button id="btnReiniciarPartida" class="reiniciar-btn" style="display: none;">Reiniciar Partida</button>
+    </canvas>
+
+    <script src="juego.js"></script>
+</body>
+</html>

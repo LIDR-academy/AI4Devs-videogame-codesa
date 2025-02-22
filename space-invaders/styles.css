@@ -1,0 +1,45 @@
+.pantalla {
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pantalla img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#btnIniciar {
+    position: absolute;
+    bottom: 20%;
+    padding: 15px 30px;
+    font-size: 24px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.reiniciar-btn {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color de texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    font-size: 16px; /* Tamaño de fuente */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.reiniciar-btn:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar por encima */
+}
