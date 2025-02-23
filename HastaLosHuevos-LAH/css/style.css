@@ -1,0 +1,66 @@
+
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#gameContainer {
+    position: relative;
+    width: 600px;
+    height: 800px;
+    background-image: url('../images/escenario.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Información */
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Personajes */
+#gallina, #sarten, .huevo {
+    position: absolute;
+    background-size: cover;
+}
+
+#gallina {
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/gallina.png');
+    top: 20px;
+}
+
+#sarten {
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/sarten.png');
+    bottom: 10px;
+}
+
+.huevo {
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/huevo.png');
+    animation: caer 5s linear infinite;
+}
+
+@keyframes caer {
+    0% {
+        top: 50px;
+    }
+    100% {
+        top: 800px;
+    }
+}

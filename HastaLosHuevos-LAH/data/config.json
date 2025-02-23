@@ -1,0 +1,20 @@
+{
+  "gallinaSpeed": 2,
+  "sartenSpeed": 4,
+  "eggSpeed": 2,
+  "eggToPoints": 1,
+  "levels": [
+    {
+      "pointsToNextLevel": 5,
+      "eggSpeed": 2
+    },
+    {
+      "pointsToNextLevel": 10,
+      "eggSpeed": 2.5
+    },
+    {
+      "pointsToNextLevel": 15,
+      "eggSpeed": 3
+    }
+  ]
+}
