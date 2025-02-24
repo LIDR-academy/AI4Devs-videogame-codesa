@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duck Shoot Game</title>
+    <style>
+        body { margin: 0; overflow: hidden; cursor: none; }
+        canvas { display: block; }
+        #puntuacion {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #gameOver {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="puntuacion">Puntos: 10</div>
+    <img id="gameOver" src="mnt/data/perro.png" alt="Game Over">
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const images = {
+            fondo: new Image(),
+            patoBlanco: new Image(),
+            patoRojo: new Image(),
+            patoDorado: new Image(),
+            perro: new Image(),
+            mira: new Image()
+        };
+
+        images.fondo.src = "mnt/data/fondo.jpg";
+        images.patoBlanco.src = "mnt/data/patoBlanco.png";
+        images.patoRojo.src = "mnt/data/patoRojo.png";
+        images.patoDorado.src = "mnt/data/patoDorado.png";
+        images.perro.src = "mnt/data/perro.png";
+        images.mira.src = "mnt/data/mira.png";
+
+        const mira = { x: canvas.width / 2, y: canvas.height / 2 };
+        const patos = [];
+        let puntos = 10;
+
+        class Pato {
+            constructor(tipo, imagen, velocidad, size, puntaje) {
+                this.tipo = tipo;
+                this.imagen = imagen;
+                this.velocidad = velocidad;
+                this.puntaje = puntaje;
+                this.width = size;
+                this.height = size;
+                this.x = Math.random() * (canvas.width - this.width);
+                this.y = Math.random() * (canvas.height / 2);
+                this.direccionX = Math.random() > 0.5 ? 1 : -1;
+                this.direccionY = Math.random() * 0.5 + 0.5;
+            }
+
+            mover() {
+                this.x += this.velocidad * this.direccionX;
+                this.y += this.velocidad * this.direccionY;
+                if (this.x < 0 || this.x + this.width > canvas.width) this.direccionX *= -1;
+                if (this.y + this.height > canvas.height) this.direccionY *= -1;
+            }
+
+            dibujar() {
+                ctx.drawImage(this.imagen, this.x, this.y, this.width, this.height);
+            }
+        }
+
+        function generarPatos() {
+            patos.push(new Pato("blanco", images.patoBlanco, 2, 80, 2));
+            patos.push(new Pato("rojo", images.patoRojo, 3, 60, 3));
+            patos.push(new Pato("dorado", images.patoDorado, 4, 40, 5));
+        }
+
+        function detectarDisparo(event) {
+            if (puntos <= 0) return;
+            
+            puntos--;
+            document.getElementById("puntuacion").innerText = `Puntos: ${puntos}`;
+            
+            if (puntos === 0) {
+                document.getElementById("gameOver").style.display = "block";
+                return;
+            }
+
+            const { clientX, clientY } = event;
+            for (let i = patos.length - 1; i >= 0; i--) {
+                const pato = patos[i];
+                if (clientX >= pato.x && clientX <= pato.x + pato.width && clientY >= pato.y && clientY <= pato.y + pato.height) {
+                    puntos += pato.puntaje;
+                    document.getElementById("puntuacion").innerText = `Puntos: ${puntos}`;
+                    patos.splice(i, 1);
+                    generarPatos();
+                }
+            }
+        }
+
+        document.addEventListener("mousemove", (e) => {
+            mira.x = e.clientX;
+            mira.y = e.clientY;
+        });
+
+        document.addEventListener("click", detectarDisparo);
+
+        function draw() {
+            ctx.drawImage(images.fondo, 0, 0, canvas.width, canvas.height);
+            patos.forEach(pato => {
+                pato.mover();
+                pato.dibujar();
+            });
+            ctx.drawImage(images.mira, mira.x - 25, mira.y - 25, 50, 50);
+            requestAnimationFrame(draw);
+        }
+
+        images.mira.onload = () => {
+            generarPatos();
+            draw();
+        };
+    </script>
+</body>
+</html>
