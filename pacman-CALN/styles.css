@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --game-width: min(100vw - 40px, 400px);
+    --game-height: calc(var(--game-width) * 1.1);
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    width: var(--game-width);
+    height: var(--game-height);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-screen, #game-over-screen {
+    border: 4px solid #00f;
+    box-shadow: 0 0 20px #00f;
+}
+
+.title {
+    color: #ffff00;
+    font-size: min(2em, 6vw);
+    text-shadow: 2px 2px #f00;
+    margin-bottom: 30px;
+    animation: blink 1s infinite;
+}
+
+.game-stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: min(14px, 2.5vw);
+    background: #000;
+    border-bottom: 4px solid #00f;
+    position: relative;
+    z-index: 1;
+}
+
+.score, .lives, .level {
+    color: #fff;
+    text-shadow: 2px 2px #00f;
+}
+
+button {
+    background: #ffff00;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    font-size: min(16px, 3.5vw);
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    margin: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px #f00;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 #f00;
+}
+
+#gameCanvas {
+    background: #000;
+    border: 4px solid #00f;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #00f;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 28/31;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: min(12px, 2.5vw);
+    line-height: 1.5;
+}
+
+.instructions p {
+    margin: 10px 0;
+    color: #fff;
+}
+
+.high-score {
+    color: #ffff00;
+    margin: 20px 0;
+    font-size: min(1em, 3.5vw);
+}
+
+@media (max-height: 500px) {
+    .game-container {
+        transform: scale(0.9);
+    }
+}
+
+@media (orientation: landscape) and (max-height: 400px) {
+    .game-container {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.power-mode {
+    animation: powerBlink 0.5s infinite;
+}
+
+@keyframes powerBlink {
+    0% { box-shadow: 0 0 30px #00f; }
+    50% { box-shadow: 0 0 30px #fff; }
+    100% { box-shadow: 0 0 30px #00f; }
+}
+
+.hidden {
+    display: none !important;
+} 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pac-Man</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="start-screen" class="screen">
+            <h1 class="title">PAC-MAN</h1>
+            <div class="high-score">HIGH SCORE: <span id="high-score">0</span></div>
+            <button id="start-button">JUGAR</button>
+            <div class="instructions">
+                <p>↑↓←→ para moverte</p>
+                <p>Come todos los puntos</p>
+                <p>¡Evita los fantasmas!</p>
+            </div>
+        </div>
+        
+        <div id="game-screen" class="screen hidden">
+            <div class="game-stats">
+                <div class="score">SCORE: <span id="score">0</span></div>
+                <div class="level">NIVEL: <span id="level">1</span></div>
+                <div class="lives">VIDAS: <span id="lives">3</span></div>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <div id="game-over-screen" class="screen hidden">
+            <h2 class="title">GAME OVER</h2>
+            <div class="final-score">SCORE: <span id="final-score">0</span></div>
+            <div class="high-score">HIGH SCORE: <span id="final-high-score">0</span></div>
+            <button id="restart-button">JUGAR DE NUEVO</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 
