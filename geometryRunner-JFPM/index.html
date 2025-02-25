@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Runner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menú principal -->
+    <div id="main-menu">
+        <h1 id="menu-title">Geometry Runner</h1>
+        <div id="menu-buttons">
+            <button class="menu-button" id="play-button">Jugar</button>
+            <button class="menu-button" id="help-button">Instrucciones</button>
+        </div>
+        <div id="instructions" style="display: none;">
+            <p>Salta los obstáculos usando <kbd>Espacio</kbd></p>
+            <p>Llega a los puntos de control para guardar tu progreso y sumar puntos</p>
+            <p>¡Alcanza la meta al final del nivel!</p>
+            <button class="menu-button" id="back-button">Volver</button>
+        </div>
+    </div>
+    
+    <!-- Contenedor del juego -->
+    <div id="game-container">
+        <div id="ground"></div>
+        <div id="player"></div>
+        <div id="score-container">Puntos: <span id="score">0</span></div>
+        
+        <div id="start-screen">
+            <h1>Geometry Runner</h1>
+            <p>Salta los obstáculos usando la barra espaciadora</p>
+            <p>Alcanza los puntos de control para sumar puntos</p>
+            <button id="start-button">¡Comenzar!</button>
+        </div>
+        
+        <div id="game-over-screen">
+            <h1>¡Oops!</h1>
+            <p>Chocaste con un obstáculo</p>
+            <p>Puntuación final: <span id="final-score">0</span></p>
+            <button id="restart-button">Reintentar</button>
+            <button id="menu-return-button">Menú Principal</button>
+        </div>
+        
+        <div id="win-screen">
+            <h1>¡Nivel Completado!</h1>
+            <p>¡Felicidades, has completado el nivel!</p>
+            <p>Puntuación final: <span id="win-score">0</span></p>
+            <button id="play-again-button">Jugar de Nuevo</button>
+            <button id="win-menu-button">Menú Principal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
