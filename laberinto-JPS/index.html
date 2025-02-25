@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Laberinto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="menu">
+        <h1>Juego Laberinto</h1>
+		
+        <button onclick="iniciarJuego('facil')">Fácil</button>
+        <button onclick="iniciarJuego('medio')">Medio</button>
+        <button onclick="iniciarJuego('dificil')">Difícil</button>
+        
+    </div>
+	<div id="mensaje" class="hidden"></div>
+    <div id="juego" class="hidden">
+        <canvas id="laberinto"></canvas>
+        <div id="hud">
+            <p>Vidas: <span id="vidas">1</span></p>
+            <p>Balas: <span id="balas">30</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
