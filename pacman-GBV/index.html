@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman GBV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="start-screen">
+            <img src="assets/images/pacman-logo.png" alt="Pacman Logo">
+            <button id="start-btn">Comenzar</button>
+        </div>
+        <div id="game-screen">
+            <div id="game-ui">
+                <span>Vidas: <span id="lives">3</span></span>
+                <span>Puntos: <span id="score">0</span></span>
+                <span>Tiempo: <span id="timer">0</span></span>
+            </div>
+            <div id="maze"></div>
+            <div id="game-controls">
+                <button id="pause-btn">Pausa</button>
+                <button id="restart-btn">Reiniciar</button>
+                <button id="menu-btn">Menú</button>
+                <button id="help-btn">Ayuda</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html> 

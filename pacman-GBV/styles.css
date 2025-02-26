@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    text-align: center;
+}
+
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#game-screen {
+    display: none;
+}
+
+#game-screen.visible {
+    display: block;
+}
+
+#maze {
+    display: grid;
+    grid-template-columns: repeat(24, 24px);
+    grid-template-rows: repeat(24, 24px);
+    gap: 1px;
+    margin: 20px auto;
+    background-color: #000;
+}
+
+.cell {
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+}
+
+.wall {
+    background-color: #0000FF;
+}
+
+.pac-dot {
+    background-color: #FF0000;
+    border-radius: 50%;
+}
+
+.power-pellet {
+    background-color: #FFA500;
+    border-radius: 50%;
+}
+
+.pacman {
+    background-color: #FFFF00;
+    border-radius: 50%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 50%);
+}
+
+.ghost {
+    width: 24px;
+    height: 24px;
+    border-radius: 50% 50% 0 0;
+}
+
+#game-controls {
+    margin-top: 20px;
+}
+
+#game-controls button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+} 
